@@ -41,9 +41,23 @@ def validate_timezone(value):
 
 class UserProfileSchema(Schema):
     """The default user profile schema."""
-
+    
     full_name = fields.String()
     affiliations = fields.String()
+    orcid = fields.String()
+    linkedIn = fields.String()
+    genre = fields.String()
+    university = fields.String()
+    languages =  fields.String()
+    identify =  fields.String()
+    faculty =  fields.String()
+    department =  fields.String()
+    career_stage =  fields.String()
+    research_group =  fields.Boolean()
+    expertise_1 =  fields.String()
+    expertise_2 =  fields.String()
+    keywords =  fields.String()
+    research_area =  fields.String()
 
 
 class UserPreferencesSchema(Schema):
