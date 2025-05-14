@@ -48,8 +48,7 @@ class UserProfileSchema(Schema):
     # profile main tabs
     profile_genre = fields.String()
     profile_university = fields.String()
-    profile_orcid = fields.String()
-    profile_linkedIn = fields.String()
+    profile_links = fields.String()
     profile_languages =  fields.String()
     profile_identify =  fields.String()
     profile_faculty =  fields.String()
