@@ -19,7 +19,7 @@ from sqlalchemy.orm import joinedload
 
 from .models import Domain, Role, User
 from .proxies import current_db_change_history
-from .sessions import delete_user_sessions
+from .sessions import delete_user_sessions,delete_user_login_information
 from .signals import datastore_post_commit, datastore_pre_commit
 
 
@@ -54,6 +54,12 @@ class SessionAwareSQLAlchemyUserDatastore(SQLAlchemyUserDatastore):
             user_confirmed.send(current_app._get_current_object(), user=user)
         return res
 
+    def delete_user_sessions(self, user):
+        res = super().delete_user_sessions(user)
+        if res:
+            delete_user_login_information(user)
+        return res
+    
     def deactivate_user(self, user):
         """Deactivate a  user.
 
@@ -66,6 +72,7 @@ class SessionAwareSQLAlchemyUserDatastore(SQLAlchemyUserDatastore):
             user.verified_at = None
             delete_user_sessions(user)
         return res
+
 
     def commit(self):
         """Commit a user to its session."""

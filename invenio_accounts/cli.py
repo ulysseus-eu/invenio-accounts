@@ -189,6 +189,8 @@ def users_delete(user):
     
     if user_obj is None:
         raise click.UsageError("ERROR: User not found.")
+    if _datastore.delete_user_sessions(user_obj):
+        click.secho('User "%s" login session has been removed.' % user, fg="green")
     if _datastore.deactivate_user(user_obj):
         click.secho('User "%s" has been deactivated.' % user, fg="green")
     if _datastore.delete_user(user_obj):

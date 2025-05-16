@@ -23,6 +23,7 @@ from ua_parser import user_agent_parser
 from werkzeug.local import LocalProxy
 
 from .models import SessionActivity
+from .models import LoginInformation
 from .proxies import current_accounts
 
 _sessionstore = LocalProxy(lambda: current_app.kvsession_store)
@@ -150,6 +151,12 @@ def delete_user_sessions(user):
             _sessionstore.delete(s.sid_s)
 
         db.session.query(SessionActivity).filter_by(user=user).delete()
+
+    return True
+
+def delete_user_login_information(user):
+    with db.session.begin_nested():
+        db.session.query(LoginInformation).filter_by(user=user).delete()
 
     return True
 
