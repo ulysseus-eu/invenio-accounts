@@ -186,8 +186,11 @@ def domains_create(domain):
 def users_delete(user):
     """Delete a user."""
     user_obj = _datastore.get_user(user)
+    
     if user_obj is None:
         raise click.UsageError("ERROR: User not found.")
+    if _datastore.deactivate_user(user_obj):
+        click.secho('User "%s" has been deactivated.' % user, fg="green")
     if _datastore.delete_user(user_obj):
         click.secho('User "%s" has been deleted.' % user, fg="green")
     else:
