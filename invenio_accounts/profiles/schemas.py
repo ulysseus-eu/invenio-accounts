@@ -44,6 +44,7 @@ class UserProfileSchema(Schema):
     # default invenio fields
     full_name = fields.String()
     affiliations = fields.String()
+    email = fields.String()
     
     # profile main tabs
     given_name = fields.String()
@@ -61,6 +62,7 @@ class UserProfileSchema(Schema):
     Faculty_Center_Institute =  fields.String()
     Department =  fields.String()
     Career_stage =  fields.String()
+    Others_initiatives = fields.String()
     Research_Group_member =  fields.Boolean()
     Additional_Keywords =  fields.String()
     Areas_of_expertise =  fields.String()
@@ -70,29 +72,29 @@ class UserProfileSchema(Schema):
     Research_Group_PI =  fields.Boolean()
     
     # profile projects tabs
-    projects_have_you_ever_designed_or_written_a_european_project_proposal = fields.Boolean()
-    projects_have_you_ever_participated_in_a_granted_european_project_as_consortium_leader = fields.Boolean()
-    projects_have_you_ever_participated_in_a_granted_european_project_as_a_member_of_consortium = fields.Boolean()
-    projects_have_you_been_an_evaluator_of_eu_projects = fields.Boolean()
-    projects_has_your_research_resulted_in_a_knowledge_transfer_initiative = fields.Boolean()
-    projects_if_yes_please_name_the_project_s_you_have_coordinated_including_the_corresponding_call_s = fields.String()
+    EU_proposal_writer = fields.Boolean()
+    EU_project_leader = fields.Boolean()
+    EU_project_member = fields.Boolean()
+    EU_project_evaluator = fields.Boolean()
+    Knowledge_Transfer = fields.Boolean()
+    Coordinated_projects_and_calls = fields.String()
     profile_please_indicate_the_full_name_of_your_research_group_in_english = fields.String()
-    projects_i_have_founded_a_spin_off_company_as_a_result_of_my_research = fields.Boolean()
-    projects_i_am_a_member_of_a_spin_off_company_linked_to_my_university= fields.Boolean()
-    projects_i_have_patented_the_results_of_my_research= fields.Boolean()
-    projects_i_am_an_active_member_of_a_business_chair_linked_to_my_university= fields.Boolean()
+    Founder_of_a_spin_off = fields.Boolean()
+    Member_of_a_spin_off= fields.Boolean()
+    Patents= fields.Boolean()
+    Member_of_an_Industrial_Chair= fields.Boolean()
     projects_other = fields.Boolean()
     projects_other_response= fields.String()
     projects_affiliated_relevant_associations_platforms_clusters = fields.String()
     
     # profile research_groups tabs
-    research_group_are_you_interested_in_participating_in_building_joint_research_groups_centered_around_shared_research_disciplines_within_ulysseus_partner_universities = fields.Boolean()
-    research_group_most_relevant_to_your_research = fields.String()
-    research_group_information_on_the_most_significant_projects = fields.String()
+    Interest_in_Joint_Research_Groups = fields.Boolean()
+    Relevant_publications = fields.String()
+    Relevant_projects = fields.String()
     
     # profile consent tabs
     consent_by_providing_my_consent= fields.Boolean()
-    consent_profile_privacy_level= fields.Boolean()
+    Visibility= fields.Boolean()
 
 class UserPreferencesSchema(Schema):
     """The default schema for user preferences."""
