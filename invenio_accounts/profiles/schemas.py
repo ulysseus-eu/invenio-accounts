@@ -45,56 +45,56 @@ class UserProfileSchema(Schema):
     full_name = fields.String()
     affiliations = fields.String()
     email = fields.String()
-    
+
     # profile main tabs
     given_name = fields.String()
-    Affiliation_to_entities = fields.String()
+    affiliation_to_entities = fields.String()
     family_name = fields.String()
-    
+
     orcid = fields.String()
     linkedin = fields.String()
-    
-    Gender = fields.String()
-    University = fields.String()
+
+    gender = fields.String()
+    university = fields.String()
     profile_links = fields.String()
-    Languages =  fields.String()
-    Expert_profile =  fields.String()
-    Faculty_Center_Institute =  fields.String()
-    Department =  fields.String()
-    Career_stage =  fields.String()
-    Others_initiatives = fields.String()
-    Research_Group_member =  fields.Boolean()
-    Additional_Keywords =  fields.String()
-    Areas_of_expertise =  fields.String()
-    Main_Keywords =  fields.String()
-    TRL_level =  fields.String()
-    Principal_Investigator  =  fields.String()
-    Research_Group_PI =  fields.Boolean()
-    
+    languages =  fields.String()
+    expert_profile =  fields.String()
+    faculty_center_institute =  fields.String()
+    department =  fields.String()
+    career_stage =  fields.String()
+    others_initiatives = fields.String()
+    research_group_member =  fields.Boolean()
+    additional_keywords =  fields.String()
+    areas_of_expertise =  fields.String()
+    main_keywords =  fields.String()
+    trl_level =  fields.String()
+    principal_investigator  =  fields.String()
+    research_group_pi =  fields.Boolean()
+
     # profile projects tabs
-    EU_proposal_writer = fields.Boolean()
-    EU_project_leader = fields.Boolean()
-    EU_project_member = fields.Boolean()
-    EU_project_evaluator = fields.Boolean()
-    Knowledge_Transfer = fields.Boolean()
-    Coordinated_projects_and_calls = fields.String()
+    eu_proposal_writer = fields.Boolean()
+    eu_project_leader = fields.Boolean()
+    eu_project_member = fields.Boolean()
+    eu_project_evaluator = fields.Boolean()
+    knowledge_transfer = fields.Boolean()
+    coordinated_projects_and_calls = fields.String()
     profile_please_indicate_the_full_name_of_your_research_group_in_english = fields.String()
-    Founder_of_a_spin_off = fields.Boolean()
-    Member_of_a_spin_off= fields.Boolean()
-    Patents= fields.Boolean()
-    Member_of_an_Industrial_Chair= fields.Boolean()
+    founder_of_a_spin_off = fields.Boolean()
+    member_of_a_spin_off= fields.Boolean()
+    patents= fields.Boolean()
+    member_of_an_industrial_chair= fields.Boolean()
     projects_other = fields.Boolean()
     projects_other_response= fields.String()
     projects_affiliated_relevant_associations_platforms_clusters = fields.String()
-    
+
     # profile research_groups tabs
-    Interest_in_Joint_Research_Groups = fields.Boolean()
-    Relevant_publications = fields.String()
-    Relevant_projects = fields.String()
-    
+    interest_in_joint_research_groups = fields.Boolean()
+    relevant_publications = fields.String()
+    relevant_projects = fields.String()
+
     # profile consent tabs
     consent_by_providing_my_consent= fields.Boolean()
-    Visibility= fields.Boolean()
+    visibility= fields.Boolean()
 
 class UserPreferencesSchema(Schema):
     """The default schema for user preferences."""
