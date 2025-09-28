@@ -318,6 +318,9 @@ ACCOUNTS_USER_PROFILE_SCHEMA = UserProfileSchema()
 ACCOUNTS_DEFAULT_USER_VISIBILITY = "restricted"
 """Default User visibility value can be set to either 'restricted' or 'public'."""
 
+ACCOUNTS_DEFAULT_USER_PROFILE_VISIBILITY = "restricted"
+"""Default User profile visibility value can be set to either 'restricted' or 'public'."""
+
 ACCOUNTS_USERNAME_REGEX = r"^[a-zA-Z][a-zA-Z0-9-_]{2,255}$"
 """The regular expression used for validating usernames.
 

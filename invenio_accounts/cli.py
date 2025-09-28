@@ -59,9 +59,10 @@ def domains():
 @click.option("-a", "--active", default=False, is_flag=True)
 @click.option("-c", "--confirm", default=False, is_flag=True)
 @click.option("-p", "--profile")
+@click.option("-pref", "--preferences")
 @with_appcontext
 @commit
-def users_create(email, password, active, confirm, profile):
+def users_create(email, password, active, confirm, profile, preferences):
     """Create a user."""
     kwargs = dict(email=email, password=password, active="y" if active else "")
 
@@ -74,6 +75,8 @@ def users_create(email, password, active, confirm, profile):
             kwargs["confirmed_at"] = datetime.utcnow()
         if profile:
             kwargs["user_profile"] = json.loads(profile)
+        if preferences:
+            kwargs["preferences"] = json.loads(preferences)
         _datastore.create_user(**kwargs)
         click.secho("User created successfully.", fg="green")
         kwargs["password"] = "****"
@@ -186,7 +189,7 @@ def domains_create(domain):
 def users_delete(user):
     """Delete a user."""
     user_obj = _datastore.get_user(user)
-    
+
     if user_obj is None:
         raise click.UsageError("ERROR: User not found.")
     if _datastore.delete_user_sessions(user_obj):

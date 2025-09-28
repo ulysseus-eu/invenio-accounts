@@ -180,6 +180,10 @@ class User(db.Model, Timestamp, UserMixin):
             current_app.config.get("ACCOUNTS_DEFAULT_USER_VISIBILITY", "restricted"),
         )
         preferences.setdefault(
+            "profile_visibility",
+            current_app.config.get("ACCOUNTS_DEFAULT_USER_PROFILE_VISIBILITY", "restricted"),
+        )
+        preferences.setdefault(
             "email_visibility",
             current_app.config.get("ACCOUNTS_DEFAULT_EMAIL_VISIBILITY", "restricted"),
         )

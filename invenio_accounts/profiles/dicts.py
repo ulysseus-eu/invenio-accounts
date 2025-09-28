@@ -7,7 +7,6 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 
 """Validated dictionary classes for user profiles and preferences."""
-
 from inspect import isclass
 
 from invenio_base.utils import load_or_import_from_config

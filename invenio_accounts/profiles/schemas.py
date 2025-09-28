@@ -93,13 +93,12 @@ class UserProfileSchema(Schema):
     relevant_projects = fields.String()
 
     # profile consent tabs
-    consent_by_providing_my_consent= fields.Boolean()
-    visibility= fields.Boolean()
+    consent_by_providing_my_consent = fields.Boolean()
 
 class UserPreferencesSchema(Schema):
     """The default schema for user preferences."""
-
     visibility = fields.String(validate=validate_visibility)
+    profile_visibility = fields.String(validate=validate_visibility)
     email_visibility = fields.String(validate=validate_visibility)
     locale = fields.String(validate=validate_locale)
     timezone = fields.String(validate=validate_timezone)
