@@ -1,13 +1,32 @@
 ..
     This file is part of Invenio.
     Copyright (C) 2015-2024 CERN.
-    Copyright (C) 2024 Graz University of Technology.
+    Copyright (C) 2024-2025 Graz University of Technology.
 
     Invenio is free software; you can redistribute it and/or modify it
     under the terms of the MIT License; see LICENSE file for more details.
 
 Changes
 =======
+
+Version v6.2.0 (released 2025-07-17)
+
+- i18n: force pull translations
+- docs: update transifex-client installation instructions
+- i18n: extract msgs
+
+Version v6.1.1 (released 2025-07-03)
+
+- fix: find_spec raise ValueError
+
+Version v6.1.0 (released 2025-07-03)
+
+- fix: pkg_resources DeprecationWarning
+
+Version v6.0.1 (released 2025-04-28)
+
+- session: fix cleanup session task
+- fix: update session removal flash messages for consistent formatting
 
 Version 6.0.0 (release 2024-12-04)
 

@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of Invenio.
-# Copyright (C) 2017-2018 CERN.
+# Copyright (C) 2017-2025 CERN.
+# Copyright (C) 2024 KTH Royal Institute of Technology.
 # Copyright (C) 2024 Graz University of Technology.
 #
 # Invenio is free software; you can redistribute it and/or modify it
@@ -13,6 +14,7 @@ from flask import abort, current_app, flash, redirect, render_template, request,
 from flask_login import login_required
 from flask_security import current_user
 from invenio_db import db
+from invenio_i18n import gettext as _
 
 from ..forms import RevokeForm
 from ..models import SessionActivity
@@ -59,7 +61,10 @@ def revoke_session():
         if not SessionActivity.is_current(sid_s=sid_s):
             # if it's the same session doesn't show the message, otherwise
             # the session will be still open without the database record
-            flash("Session {0} successfully removed.".format(sid_s), "success")
+            flash(
+                _("Session %(sid_s)s successfully removed.") % {"sid_s": sid_s},
+                "success",
+            )
     else:
-        flash("Unable to remove the session {0}.".format(sid_s), "error")
+        flash(_("Unable to remove the session %(sid_s)s.") % {"sid_s": sid_s}, "error")
     return redirect(url_for("invenio_accounts.security"))
