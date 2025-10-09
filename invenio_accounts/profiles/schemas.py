@@ -48,7 +48,6 @@ class UserProfileSchema(Schema):
 
     # profile main tabs
     given_name = fields.String()
-    affiliation_to_entities = fields.String()
     family_name = fields.String()
 
     orcid = fields.String()
