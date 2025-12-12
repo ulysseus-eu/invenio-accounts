@@ -196,6 +196,10 @@ class User(db.Model, Timestamp, UserMixin):
             current_app.config.get("BABEL_DEFAULT_TIMEZONE", "Europe/Zurich"),
         )
         super().__init__(*args, **kwargs)
+        self.username = kwargs.pop("username", None)
+        display_name = kwargs.pop("displayname", None)
+        if display_name is not None:
+            self.username = display_name
         self.user_profile = user_profile
         self.preferences = preferences
 

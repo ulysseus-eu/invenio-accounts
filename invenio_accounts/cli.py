@@ -58,11 +58,13 @@ def domains():
 @click.password_option()
 @click.option("-a", "--active", default=False, is_flag=True)
 @click.option("-c", "--confirm", default=False, is_flag=True)
+@click.option("-u", "--username")
+@click.option("-d", "--displayname")
 @click.option("-p", "--profile")
 @click.option("-pref", "--preferences")
 @with_appcontext
 @commit
-def users_create(email, password, active, confirm, profile, preferences):
+def users_create(email, password, active, confirm, username, displayname, profile, preferences):
     """Create a user."""
     kwargs = dict(email=email, password=password, active="y" if active else "")
 
@@ -73,6 +75,10 @@ def users_create(email, password, active, confirm, profile, preferences):
         kwargs["active"] = active
         if confirm:
             kwargs["confirmed_at"] = datetime.utcnow()
+        if username:
+            kwargs["username"] = username
+        if displayname:
+            kwargs["displayname"] = displayname
         if profile:
             kwargs["user_profile"] = json.loads(profile)
         if preferences:
