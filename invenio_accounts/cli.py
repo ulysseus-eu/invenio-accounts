@@ -59,7 +59,6 @@ def domains():
 @click.option("-a", "--active", default=False, is_flag=True)
 @click.option("-c", "--confirm", default=False, is_flag=True)
 @click.option("-u", "--username")
-@click.option("-d", "--displayname")
 @click.option("-p", "--profile")
 @click.option("-pref", "--preferences")
 @with_appcontext
