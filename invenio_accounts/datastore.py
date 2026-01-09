@@ -46,7 +46,7 @@ class SessionAwareSQLAlchemyUserDatastore(SQLAlchemyUserDatastore):
         return True
 
     def activate_user(self, user):
-        """Activate a unconfirmed/deactivated/blocked user."""
+        """Activate an unconfirmed/deactivated/blocked user."""
         res = super().activate_user(user)
         user.blocked_at = None
         if user.confirmed_at is None:
